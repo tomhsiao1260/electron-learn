@@ -1,5 +1,4 @@
-import React from "react"
-import { Outlet } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 export const Layout = () => {
   return (
@@ -8,14 +7,12 @@ export const Layout = () => {
 
       <ul>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="/work">Work</a>
+          <Link to="/work">Work</Link>
         </li>
       </ul>
-
-      <Outlet />
     </div>
   )
 }

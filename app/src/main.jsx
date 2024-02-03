@@ -1,22 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import App from './App'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { Work } from './pages/Work'
 import './index.css'
+// import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/*<App />*/}
+    {/* <App /> */}
 
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={ <Layout/> }>
-          <Route path='/work' element={ <Work/> } />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HashRouter>
+      <Layout />
+      <Switch>
+        <Route exact path="/" component={() => <></>} />
+        <Route path="/work" component={ Work } />
+        <Redirect from="/" to="/" />
+      </Switch>
+    </HashRouter>
 
   </React.StrictMode>
 )
+
+
+
