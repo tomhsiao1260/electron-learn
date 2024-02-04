@@ -1,15 +1,8 @@
-import { TodoForm } from "../components/TodoForm";
+import { TodoForm } from "../components/forms/TodoForm";
 
 export const Work = () => {
-  const electron = window.electron;
-
   return (
     <div>
-      This is work space
-      <br />
-      {electron.homeDir()}
-      <br />
-      {electron.osVersion()}
       <TodoForm />
     </div>
   );
