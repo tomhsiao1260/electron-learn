@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const url = require("url");
 const path = require("path");
 
@@ -27,3 +27,7 @@ function createMainWindow() {
 }
 
 app.whenReady().then(createMainWindow);
+
+ipcMain.on("submit:todoForm", (event, args) => {
+  console.log(args, event);
+});
