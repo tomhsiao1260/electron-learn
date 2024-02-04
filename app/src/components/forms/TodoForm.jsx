@@ -34,6 +34,7 @@ export const TodoForm = () => {
               component={TextField}
               placeholder="Enter the description"
               autoFocus={true}
+              className="px-2 py-3 mt-2 border rounded shadow-sm w-full"
             />
             <ErrorMessage
               name="description"
