@@ -1,6 +1,7 @@
 import { Form, Field, Formik, ErrorMessage } from "formik";
 import { TextField } from "../common/TextField";
 import { Button } from "../common/Button";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
 export const TodoForm = () => {
@@ -15,6 +16,11 @@ export const TodoForm = () => {
   const validationSchema = Yup.object().shape({
     description: Yup.string().required(),
   });
+
+  useEffect(() => {
+    ipcRenderer.on("submit:complete", (res) => console.log(res));
+    return () => ipcRenderer.removeAllListeners("submit:complete");
+  }, []);
 
   return (
     <>

@@ -6,8 +6,10 @@ const path = require("path");
 // once finish, npm start to run this electron app
 // vite.config.js need to add base: '' option to make its path build correctly
 
+let mainWindow;
+
 function createMainWindow() {
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     title: "Electron",
     width: 1000,
     height: 600,
@@ -30,4 +32,7 @@ app.whenReady().then(createMainWindow);
 
 ipcMain.on("submit:todoForm", (event, args) => {
   console.log(args, event);
+  mainWindow.webContents.send("submit:complete", { status: "success!" });
+
+  return true;
 });
